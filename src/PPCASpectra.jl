@@ -1,5 +1,9 @@
 module PPCASpectra
 
-# Write your package code here.
+    using DelimitedFiles, Printf
+
+    include("loadspectra.jl")
+
+    export loadspectra
 
 end
