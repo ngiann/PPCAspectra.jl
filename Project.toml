@@ -1,7 +1,7 @@
 name = "PPCASpectra"
 uuid = "4bc70558-c007-47c0-a71b-57423cb29c3c"
 authors = ["Nikos Gianniotis"]
-version = "0.0.1"
+version = "0.0.2"
 
 [deps]
 DelimitedFiles = "8bb1440f-4735-579b-a4ab-409b98df4dab"
