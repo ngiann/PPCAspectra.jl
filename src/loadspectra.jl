@@ -12,7 +12,7 @@ Returns
 """
 function loadspectra(;N=7506, bnd=NaN)
 
-    @printf("Returning %d number of spectra of dimension 1000\n", N)
+    @printf("Returning %d number of spectra\n", N)
     
     lcpath = dirname(pathof(PPCASpectra))
 
@@ -46,5 +46,16 @@ function loadspectra(;N=7506, bnd=NaN)
 
 
     return X, Y
+
+end
+
+
+function loadoriginalspectra(;N=7506)
+    
+    @printf("Returning %d number of spectra\n", N)
+    
+    lcpath = dirname(pathof(PPCASpectra))
+
+    readdlm(lcpath*"/fluxes.csv", ',')[1:N,:]
 
 end

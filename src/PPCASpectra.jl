@@ -4,6 +4,6 @@ module PPCASpectra
 
     include("loadspectra.jl")
 
-    export loadspectra
+    export loadspectra, loadoriginalspectra
 
 end
