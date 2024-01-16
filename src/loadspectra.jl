@@ -1,5 +1,5 @@
 """
-    X, Y = loadspectra(;N=7506, bnd=NaN)
+    X, Y = loadspectra(;N=7506, bnd=NaN, allownegative = false)
 
 Load data from "A Spectral Model for Multimodal Redshift Estimation".
 Argument N controls the number of spectra returned with N=7506 being the total available number.
@@ -10,7 +10,7 @@ Returns
 - X is an array of arrays of wavelengths
 - Y is an array of arrays of fluxes
 """
-function loadspectra(;N=7506, bnd=NaN)
+function loadspectra(;N=7506, bnd=NaN, allownegative = false)
 
     @printf("Returning %d number of spectra\n", N)
     
@@ -40,10 +40,11 @@ function loadspectra(;N=7506, bnd=NaN)
     end
 
 
-    Y = [max.(filter(notinf, A[n,:]), 0.0) for n in 1:N]
+    Y =  allownegative ? [filter(notinf, A[n,:]) for n in 1:N] : [max.(filter(notinf, A[n,:]), 0.0) for n in 1:N]
 
-    @printf("\t Negative values have been replaced by zero.\n")
-
+    allownegative ? @printf("\t Note the negative values of flux.\n") : @printf("\t Negative values have been replaced by zero.\n")
+    
+    
 
     return X, Y
 
