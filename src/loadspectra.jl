@@ -57,6 +57,8 @@ function loadoriginalspectra(;N=7506)
     
     lcpath = dirname(pathof(PPCASpectra))
 
+    @printf("Infs denote missing values❗\n")
+
     readdlm(lcpath*"/fluxes.csv", ',')[1:N,:]
 
 end
